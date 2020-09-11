@@ -145,7 +145,8 @@ namespace MarsQA_1.SpecflowPages.Pages
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonEditSkill);
             buttonEditSkill.Click();
-            textboxEditSkill.SendKeys(" C#");
+            textboxEditSkill.Clear();
+            textboxEditSkill.SendKeys("C#");
             dropdownEditSkillLV.Click();
             dropdownEditSkillOption.Click();
             buttonEditSkillSave.Click();
@@ -188,7 +189,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             //Checks Skill after changing tab and waiting for elements to be interactable
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteSkill);
-            //if (checkSkill.Text != ExpectedSkill) { CheckResult = false; }
+            if (checkSkill.Text != ExpectedSkill) { CheckResult = false; }
 
             //Checks Education after changing tab and waiting for elements to be interactable
             tabEducation.Click();
@@ -210,7 +211,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
             //Looks for Language delete button after changing tab expecting not finding it
             tabLanguage.Click();
-            Assert.IsTrue(WaitHelper.CheckClickable(Driver.driver, buttonDeleteLanguage));
+            Assert.IsTrue(WaitHelper.CheckClickable(buttonDeleteLanguage));
 
         }
     }

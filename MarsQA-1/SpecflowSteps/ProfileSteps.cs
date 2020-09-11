@@ -48,7 +48,7 @@ namespace MarsQA_1.SpecflowSteps
         [Then(@"the User is able to see the changed details in the profile page")]
         public void ThenTheUserIsAbleToSeeTheChangedDetailsInTheProfilePage()
         {
-            ProfilePage.CheckDetails("English", "Selenium C#", "Bachelor in Mechatronic Engineering", "Manual Handling");
+            ProfilePage.CheckDetails("English", "Selenium", "Bachelor in Mechatronic Engineering", "Manual Handling");
         }
 
         //Delete details Function

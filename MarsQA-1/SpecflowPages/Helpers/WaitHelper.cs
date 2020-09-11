@@ -14,16 +14,15 @@ namespace IC_TimeMaterialPage.Helpers
     {
         public static void WaitClickble(IWebDriver driver, IWebElement element)
         {
-            var Wait = new WebDriverWait(driver, new TimeSpan(0,0,30));
+            var Wait = new WebDriverWait(driver, new TimeSpan(0,0,15));
             Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
         }
 
-        public static bool CheckClickable(IWebDriver driver, IWebElement element)
+        public static bool CheckClickable(IWebElement element)
         {
             try
             {
-                var Wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
-                Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
+                element.Click();
                 return true;
             }
             catch (Exception e)

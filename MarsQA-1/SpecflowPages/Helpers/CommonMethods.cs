@@ -12,8 +12,11 @@ namespace MarsQA_1.Helpers
 {
     public class CommonMethods
     {
-        
-        
+        //ExtentReports
+        #region reports
+        public static ExtentReports Extent;
+        public static ExtentTest test;
+
         //Screenshots
         //Screenshot
 
@@ -40,12 +43,6 @@ namespace MarsQA_1.Helpers
                 return fileName.ToString();
             }
         }
-
-        //ExtentReports
-        #region reports
-        public static ExtentTest test;
-        public static ExtentReports Extent;
-
 
 
         public static void ExtentReports()
