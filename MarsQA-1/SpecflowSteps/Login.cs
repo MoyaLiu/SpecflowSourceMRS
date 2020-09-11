@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarsQA_1.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ namespace MarsQA_1.Feature
         [Given(@"I login to the website")]
         public void GivenILoginToTheWebsite()
         {
-            ScenarioContext.Current.Pending();
+            //call the SignIn class
+            SignIn.SigninStep();
         }
 
     }

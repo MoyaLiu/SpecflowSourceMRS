@@ -76,13 +76,13 @@ namespace MarsQA_1.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login to website")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.CategoryAttribute("SourceCode")]
         public virtual void LoginToWebsite()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "SourceCode"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login to website", null, new string[] {
-                        "mytag"});
+                        "SourceCode"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

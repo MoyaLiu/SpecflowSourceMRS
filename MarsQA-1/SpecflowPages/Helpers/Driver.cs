@@ -21,6 +21,9 @@ namespace MarsQA_1.Helpers
 
             //Maximise the window
             driver.Manage().Window.Maximize();
+
+            //Navigate to home page
+            driver.Navigate().GoToUrl(BaseUrl);
         }
 
         public static string BaseUrl

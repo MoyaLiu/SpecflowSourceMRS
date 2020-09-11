@@ -12,6 +12,8 @@ namespace MarsQA_1.Helpers
 {
     public class CommonMethods
     {
+        
+        
         //Screenshots
         //Screenshot
 
