@@ -16,39 +16,39 @@ namespace MarsQA_1.SpecflowSteps
         public void GivenTheUserIsInTheProfilePage()
         {
             ProfilePage.GoToProfilePage();
+            ProfilePage.CheckProfilePage();
         }
 
         [Given(@"the User has log-In")]
         public void GivenTheUserHasLog_In()
         {
-            SignIn.Login("limbo12_@hotmail.com","123123");
-            ProfilePage.CheckProfilePage();
+            SignIn.SigninStep();
         }
         
         //Add new details Function
         [When(@"the User fills the profile details")]
         public void WhenTheUserFillsTheProfileDetails()
         {
-            ProfilePage.FillDetails();
+            ProfilePage.FillDetails(2);
         }
         
         [Then(@"the User is able to see the profile details in the profile page")]
         public void ThenTheUserIsAbleToSeeTheProfileDetailsInTheProfilePage()
         {
-            ProfilePage.CheckDetails("English", "Selenium", "Bachelor in Mechatronic Engineering", "Manual Handling");
+            ProfilePage.CheckDetails(2);
         }
 
         //Edit details Function
         [When(@"the User edits the profile details")]
         public void WhenTheUserEditsTheProfileDetails()
         {
-            ProfilePage.EditDetails();
+            ProfilePage.EditDetails(3);
         }
 
         [Then(@"the User is able to see the changed details in the profile page")]
         public void ThenTheUserIsAbleToSeeTheChangedDetailsInTheProfilePage()
         {
-            ProfilePage.CheckDetails("English", "Selenium", "Bachelor in Mechatronic Engineering", "Manual Handling");
+            ProfilePage.CheckDetails(2);
         }
 
         //Delete details Function

@@ -77,7 +77,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             WaitHelper.WaitClickble(Driver.driver,labelGreeting);
         }
 
-        public static void FillDetails()
+        public static void FillDetails(int DataRow)
         {
             
             //Wait for the Profile details to be interactable
@@ -85,14 +85,14 @@ namespace MarsQA_1.SpecflowPages.Pages
 
             //Fill description
             buttonEditDescription.Click();
-            textboxDescription.SendKeys("QA Automation Test Enthusiast automating for MARS project");
+            textboxDescription.SendKeys((ExcelLibHelper.ReadData(DataRow, "description")));
             buttonSaveDescription.Click();
 
             //Fill Language after changing tab and waiting for elements to be interactable
             tabLanguage.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddLanguage);
             buttonAddLanguage.Click();
-            textboxAddLanguage.SendKeys("English");
+            textboxAddLanguage.SendKeys((ExcelLibHelper.ReadData(DataRow, "language")));
             dropdownLanguageLV.Click();
             dropdownLanguageOption.Click();
             buttonLanguageSave.Click();
@@ -101,7 +101,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddSkill);
             buttonAddSkill.Click();
-            textboxAddSkill.SendKeys("Selenium");
+            textboxAddSkill.SendKeys((ExcelLibHelper.ReadData(DataRow, "skill")));
             dropdownSkillLV.Click();
             dropdownSkillOption.Click();
             buttonAddSkillSave.Click();
@@ -115,7 +115,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             dropdownCollegeOption.Click();
             dropdownTitle.Click();
             dropdownTitleOption.Click();
-            textboxDegree.SendKeys("Bachelor in Mechatronic Engineering");
+            textboxDegree.SendKeys((ExcelLibHelper.ReadData(DataRow, "education")));
             dropdownGraduation.Click();
             dropdownGraduationOption.Click();
             buttonAddEducationSave.Click();
@@ -124,14 +124,14 @@ namespace MarsQA_1.SpecflowPages.Pages
             tabCertificates.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddCertificates);
             buttonAddCertificates.Click();
-            textboxCertificates.SendKeys("Manual Handling");
+            textboxCertificates.SendKeys((ExcelLibHelper.ReadData(DataRow, "certificates")));
             textboxCertificator.SendKeys("RH Consulting");
             dropdownCertificateYear.Click();
             dropdownCertificateYearOption.Click();
             buttonCertificateSave.Click();
         }
 
-        public static void EditDetails()
+        public static void EditDetails(int DataRow)
         {
             //Edit Language after changing tab and waiting for elements to be interactable
             tabLanguage.Click();
@@ -146,7 +146,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             WaitHelper.WaitClickble(Driver.driver, buttonEditSkill);
             buttonEditSkill.Click();
             textboxEditSkill.Clear();
-            textboxEditSkill.SendKeys("C#");
+            textboxEditSkill.SendKeys(ExcelLibHelper.ReadData(DataRow, "skill"));
             dropdownEditSkillLV.Click();
             dropdownEditSkillOption.Click();
             buttonEditSkillSave.Click();
@@ -176,30 +176,31 @@ namespace MarsQA_1.SpecflowPages.Pages
             buttonDeleteCertificate.Click();
         }
 
-        public static void CheckDetails(string ExpectedLanguage, string ExpectedSkill, string ExpectedEducation, string Certificate)
+        public static void CheckDetails(int DataRow)
         {
             //Creates the Variable to return
             bool CheckResult = true;
+            Driver.driver.Navigate().Refresh();
 
             //Checks Language after changing tab and waiting for elements to be interactable
             tabLanguage.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteLanguage);
-            if (checkLanguage.Text!= ExpectedLanguage) { CheckResult = false; }
+            if (checkLanguage.Text!= ExcelLibHelper.ReadData(DataRow, "language")) { CheckResult = false; }
 
             //Checks Skill after changing tab and waiting for elements to be interactable
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteSkill);
-            if (checkSkill.Text != ExpectedSkill) { CheckResult = false; }
+            if (checkSkill.Text != ExcelLibHelper.ReadData(DataRow, "skill")) { CheckResult = false; }
 
             //Checks Education after changing tab and waiting for elements to be interactable
             tabEducation.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteEducation);
-            if (checkEducation.Text != ExpectedEducation) { CheckResult = false; }
+            if (checkEducation.Text != ExcelLibHelper.ReadData(DataRow, "education")) { CheckResult = false; }
 
             //Checks Certificates after changing tab and waiting for elements to be interactable
             tabCertificates.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteCertificate);
-            if (checkCertificate.Text != Certificate) { CheckResult = false; }
+            if (checkCertificate.Text != ExcelLibHelper.ReadData(DataRow, "certificates")) { CheckResult = false; }
 
             if (CheckResult != true)
             {

@@ -14,7 +14,7 @@ namespace IC_TimeMaterialPage.Helpers
     {
         public static void WaitClickble(IWebDriver driver, IWebElement element)
         {
-            var Wait = new WebDriverWait(driver, new TimeSpan(0,0,15));
+            var Wait = new WebDriverWait(driver, new TimeSpan(0,0,25));
             Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
         }
 

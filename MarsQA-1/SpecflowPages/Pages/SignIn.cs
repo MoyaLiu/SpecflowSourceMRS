@@ -18,23 +18,6 @@ namespace MarsQA_1.Pages
             Password.SendKeys(ExcelLibHelper.ReadData(2, "password"));
             LoginBtn.Click();
         }
-        public static void Login(string account,string password)
-        {
-            Driver.NavigateUrl();
-
-            //Enter Log-In function
-            SignInBtn.Click();
-
-            //Enter Username
-            Email.SendKeys(account);
-
-            //Enter password
-            Password.SendKeys(password);
-
-            //Click on Login Button
-            LoginBtn.Click();
-
-        }
         public static void CheckLogin()
         {
             //Driver.driver.FindElement(By.Xpath)
