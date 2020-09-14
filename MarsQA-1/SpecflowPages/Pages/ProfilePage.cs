@@ -3,6 +3,7 @@ using MarsQA_1.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MarsQA_1.SpecflowPages.Pages
@@ -22,6 +23,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement dropdownLanguageOption => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select/option[3]"));
         private static IWebElement buttonLanguageSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
         private static IWebElement buttonEditLanguage => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[1]"));
+        private static IWebElement textboxEditLanguage => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
         private static IWebElement dropdownEditLanguageLV => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
         private static IWebElement dropdownEditLanguageOption => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select/option[2]"));
         private static IWebElement buttonEditLanguageSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
@@ -53,6 +55,9 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement dropdownGraduation => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[3]/div/input[1]"));
         private static IWebElement dropdownGraduationOption => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select/option[3]"));
         private static IWebElement buttonAddEducationSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[3]/div/input[1]"));
+        private static IWebElement buttonEditEducation => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[1]/i"));
+        private static IWebElement textboxEditEducation => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[2]/div[2]/input"));
+        private static IWebElement buttonEditEducationSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[3]/input[1]"));
         private static IWebElement buttonDeleteEducation => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]/i"));
         private static IWebElement checkEducation => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[4]"));
         //Certificate Tab Elements
@@ -64,6 +69,9 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement dropdownCertificateYearOption => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[2]/div[2]/select/option[2]"));
         private static IWebElement buttonCertificateSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[1]"));
         private static IWebElement buttonDeleteCertificate => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[4]/span[2]/i"));
+        private static IWebElement buttonEditCertificate => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[4]/span[1]/i"));
+        private static IWebElement textboxEditCertificate => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[1]/input"));
+        private static IWebElement buttonEditCertificateSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
         private static IWebElement checkCertificate => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[1]"));
 
         public static void GoToProfilePage()
@@ -88,6 +96,21 @@ namespace MarsQA_1.SpecflowPages.Pages
             textboxDescription.SendKeys((ExcelLibHelper.ReadData(DataRow, "description")));
             buttonSaveDescription.Click();
 
+            //Fill Language Information
+            AddLanguage(DataRow);
+
+            //Fill Skills after Information
+            AddSkill(DataRow);
+
+            //Fill Education Information
+            AddEducation(DataRow);
+
+            //Fill Certificate Information
+            AddCertificate(DataRow);
+        }
+
+        public static void AddLanguage(int DataRow)
+        {
             //Fill Language after changing tab and waiting for elements to be interactable
             tabLanguage.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddLanguage);
@@ -96,7 +119,10 @@ namespace MarsQA_1.SpecflowPages.Pages
             dropdownLanguageLV.Click();
             dropdownLanguageOption.Click();
             buttonLanguageSave.Click();
+        }
 
+        public static void AddSkill(int DataRow)
+        {
             //Fill Skills after changing tab and waiting for elements to be interactable
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddSkill);
@@ -105,7 +131,10 @@ namespace MarsQA_1.SpecflowPages.Pages
             dropdownSkillLV.Click();
             dropdownSkillOption.Click();
             buttonAddSkillSave.Click();
+        }
 
+        public static void AddEducation(int DataRow)
+        {
             //Fill Education after changing tab and waiting for elements to be interactable
             tabEducation.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddEducation);
@@ -119,7 +148,10 @@ namespace MarsQA_1.SpecflowPages.Pages
             dropdownGraduation.Click();
             dropdownGraduationOption.Click();
             buttonAddEducationSave.Click();
+        }
 
+        public static void AddCertificate(int DataRow)
+        {
             //Fill Certifications after changing tab and waiting for elements to be interactable
             tabCertificates.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddCertificates);
@@ -151,6 +183,49 @@ namespace MarsQA_1.SpecflowPages.Pages
             dropdownEditSkillOption.Click();
             buttonEditSkillSave.Click();
 
+        }
+
+        public static void EditLanguage(int DataRow)
+        {
+            EditLanguage(3);
+            EditSkill(3);
+            EditEducation(3);
+            EditCertificate(3);
+        }
+
+        public static void EditSkill(int DataRow)
+        {
+            //Edit Skills after changing tab and waiting for elements to be interactable
+            tabSkill.Click();
+            WaitHelper.WaitClickble(Driver.driver, buttonEditSkill);
+            buttonEditSkill.Click();
+            textboxEditSkill.Clear();
+            textboxEditSkill.SendKeys(ExcelLibHelper.ReadData(DataRow, "skill"));
+            dropdownEditSkillLV.Click();
+            dropdownEditSkillOption.Click();
+            buttonEditSkillSave.Click();
+        }
+
+        public static void EditEducation(int DataRow)
+        {
+            //Edit Skills after changing tab and waiting for elements to be interactable
+            tabEducation.Click();
+            WaitHelper.WaitClickble(Driver.driver, buttonEditEducation);
+            buttonEditSkill.Click();
+            textboxEditEducation.Clear();
+            textboxEditEducation.SendKeys(ExcelLibHelper.ReadData(DataRow, "education"));
+            buttonEditEducationSave.Click();
+        }
+
+        public static void EditCertificate(int DataRow)
+        {
+            //Edit Skills after changing tab and waiting for elements to be interactable
+            tabCertificates.Click();
+            WaitHelper.WaitClickble(Driver.driver, buttonEditCertificate);
+            buttonEditCertificate.Click();
+            textboxEditCertificate.Clear();
+            textboxEditCertificate.SendKeys(ExcelLibHelper.ReadData(DataRow, "certificates"));
+            buttonEditCertificateSave.Click();
         }
 
         public static void DeleteDetails()
@@ -211,9 +286,15 @@ namespace MarsQA_1.SpecflowPages.Pages
         public static void CheckIfEmpty()
         {
             //Looks for Language delete button after changing tab expecting not finding it
-            tabLanguage.Click();
-            Assert.IsTrue(WaitHelper.CheckClickable(buttonDeleteLanguage));
-
+            try
+            { 
+                tabLanguage.Click();
+                Assert.Fail();
+            }
+            catch
+            {
+                Assert.Pass();
+            }
         }
     }
 }

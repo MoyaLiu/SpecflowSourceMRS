@@ -48,7 +48,7 @@ namespace MarsQA_1.SpecflowSteps
         [Then(@"the User is able to see the changed details in the profile page")]
         public void ThenTheUserIsAbleToSeeTheChangedDetailsInTheProfilePage()
         {
-            ProfilePage.CheckDetails(2);
+            ProfilePage.CheckDetails(3);
         }
 
         //Delete details Function
