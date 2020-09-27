@@ -93,6 +93,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
             //Fill description
             buttonEditDescription.Click();
+            textboxDescription.Clear();
             textboxDescription.SendKeys((ExcelLibHelper.ReadData(DataRow, "description")));
             buttonSaveDescription.Click();
 
