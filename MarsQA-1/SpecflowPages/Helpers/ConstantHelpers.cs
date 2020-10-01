@@ -17,6 +17,9 @@ namespace MarsQA_1.Helpers
         //ExtentReportsPath
         public static string ReportsPath = "@/MarsQA-1/TestReports/Reports";
 
+        //ExcelData Sheet Path
+        public static string ExcelPath = "C:\\Users\\limbo\\Documents\\VisualStudio2019\\MVP-MARS\\onboarding.specflow-master\\MarsQA-1\\SpecflowTests\\Data\\TestData.xlsx";
+
         //ReportXML Path
         public static string ReportXMLPath = "";
     }

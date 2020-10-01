@@ -16,7 +16,7 @@ namespace MarsQA_1.Utils
             
             //launch the browser
             Initialize();
-            ExcelLibHelper.PopulateInCollection(@"MarsQA-1\SpecflowTests\Data\Mars.xlsx", "TestData");
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "TestData");
             
         }
 

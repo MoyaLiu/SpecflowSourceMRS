@@ -1,15 +1,12 @@
-﻿using IC_TimeMaterialPage.Helpers;
-using MarsQA_1.Helpers;
+﻿using MarsQA_1.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace MarsQA_1.SpecflowPages.Pages
 {
     class ProfilePage
     {
+        #region Initialize Web Elements
         //Main Profile Elements
         private static IWebElement labelGreeting => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/div[1]/div[2]/div/span"));
         private static IWebElement buttonEditDescription => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i"));
@@ -73,6 +70,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement textboxEditCertificate => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[1]/input"));
         private static IWebElement buttonEditCertificateSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
         private static IWebElement checkCertificate => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[1]"));
+        #endregion
 
         public static void GoToProfilePage()
         {
@@ -85,6 +83,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             WaitHelper.WaitClickble(Driver.driver,labelGreeting);
         }
 
+        #region Test Methods
         public static void FillDetails(int DataRow)
         {
             
@@ -92,10 +91,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             WaitHelper.WaitClickble(Driver.driver, buttonEditDescription);
 
             //Fill description
-            buttonEditDescription.Click();
-            textboxDescription.Clear();
-            textboxDescription.SendKeys((ExcelLibHelper.ReadData(DataRow, "description")));
-            buttonSaveDescription.Click();
+            AddDescription(DataRow);
 
             //Fill Language Information
             AddLanguage(DataRow);
@@ -109,7 +105,16 @@ namespace MarsQA_1.SpecflowPages.Pages
             //Fill Certificate Information
             AddCertificate(DataRow);
         }
+        #endregion
 
+        #region Page Methods
+        public static void AddDescription(int DataRow)
+        {
+            buttonEditDescription.Click();
+            textboxDescription.Clear();
+            textboxDescription.SendKeys((ExcelLibHelper.ReadData(DataRow, "description")));
+            buttonSaveDescription.Click();
+        }
         public static void AddLanguage(int DataRow)
         {
             //Fill Language after changing tab and waiting for elements to be interactable
@@ -297,5 +302,6 @@ namespace MarsQA_1.SpecflowPages.Pages
                 Assert.Pass();
             }
         }
+        #endregion
     }
 }

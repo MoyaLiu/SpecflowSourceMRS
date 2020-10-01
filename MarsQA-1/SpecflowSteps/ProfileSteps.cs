@@ -1,9 +1,5 @@
-﻿using MarsQA_1.Feature;
-using MarsQA_1.Helpers;
-using MarsQA_1.Pages;
+﻿using MarsQA_1.Pages;
 using MarsQA_1.SpecflowPages.Pages;
-using NUnit.Framework;
-using System;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.SpecflowSteps

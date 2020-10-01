@@ -154,7 +154,8 @@
   <ItemGroup>
     <Compile Include="SpecflowPages\Helpers\WaitHelper.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage.cs" />
-    <Compile Include="SpecflowSteps\Login.cs" />
+    <Compile Include="SpecflowPages\Pages\SignUp.cs" />
+    <Compile Include="SpecflowSteps\HomeSteps.cs" />
     <Compile Include="SpecflowPages\Helpers\CommonMethods.cs" />
     <Compile Include="SpecflowPages\Helpers\ConstantHelpers.cs" />
     <Compile Include="SpecflowPages\Helpers\Driver.cs" />
@@ -166,7 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Feature\Login.feature" />
+    <None Include="Feature\Home.feature" />
     <None Include="Feature\Profile.feature" />
     <None Include="SpecflowTests\Data\Data.xlsx" />
     <None Include="packages.config" />
