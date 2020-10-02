@@ -1,5 +1,5 @@
-﻿using MarsQA_1.SpecflowPages.Pages;
-using OpenQA.Selenium;
+﻿using MarsQA_1.Pages;
+using MarsQA_1.SpecflowPages.Pages;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.Feature
@@ -49,6 +49,38 @@ namespace MarsQA_1.Feature
         {
             SignUp.CheckFormPresence();
         }
+
+        [When(@"I Click on the SignIn Button")]
+        public void WhenIClickOnTheSignInButton()
+        {
+            SignIn.OpenForm();
+        }
+
+        [When(@"I Fill the form with an unregistered Email")]
+        public void WhenIFillTheFormWithAnUnregisteredEmail()
+        {
+            SignIn.FillCredentials(3);
+        }
+
+        [Then(@"I should see a Confirm Email form")]
+        public void ThenIShouldSeeAConfirmEmailForm()
+        {
+            //ScenarioContext.Current.Pending();
+
+        }
+
+        [When(@"I Fill the form with valid credentials")]
+        public void WhenIFillTheFormWithValidCredentials()
+        {
+            SignIn.FillCredentials(2);
+        }
+
+        [Then(@"I should see the Profile page")]
+        public void ThenIShouldSeeTheProfilePage()
+        {
+            ProfilePages.CheckProfilePage();
+        }
+
 
     }
 }

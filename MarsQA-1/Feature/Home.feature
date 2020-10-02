@@ -19,3 +19,17 @@ Scenario: Register with a used E-mail
 	When I Click on the Join Button
 	And I Fill the form with my current Email
 	Then I should see an alert in the Email field
+
+@TC002-03
+Scenario: Sign In with a usregistered E-mail
+	Given Im in the Home Page
+	When I Click on the SignIn Button
+	And I Fill the form with an unregistered Email
+	Then I should see a Confirm Email form
+
+@TC002-04
+Scenario: Sign In with a valid credentials
+	Given Im in the Home Page
+	When I Click on the SignIn Button
+	And I Fill the form with valid credentials
+	Then I should see the Profile page

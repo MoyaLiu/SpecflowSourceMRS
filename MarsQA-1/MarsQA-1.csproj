@@ -154,13 +154,17 @@
   <ItemGroup>
     <Compile Include="SpecflowPages\Helpers\WaitHelper.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage.cs" />
-    <Compile Include="SpecflowPages\Pages\SignUp.cs" />
+    <Compile Include="SpecflowPages\Pages\HomePage\SignUp.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\CertificatesTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\EducationTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\LanguageTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\SkillsTab.cs" />
     <Compile Include="SpecflowSteps\HomeSteps.cs" />
     <Compile Include="SpecflowPages\Helpers\CommonMethods.cs" />
     <Compile Include="SpecflowPages\Helpers\ConstantHelpers.cs" />
     <Compile Include="SpecflowPages\Helpers\Driver.cs" />
     <Compile Include="SpecflowPages\Helpers\ExcelLibHelper.cs" />
-    <Compile Include="SpecflowPages\Pages\SignIn.cs" />
+    <Compile Include="SpecflowPages\Pages\HomePage\SignIn.cs" />
     <Compile Include="SpecflowPages\Utils\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecflowSteps\ProfileSteps.cs" />

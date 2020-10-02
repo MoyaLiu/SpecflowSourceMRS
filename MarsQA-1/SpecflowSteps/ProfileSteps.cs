@@ -11,8 +11,8 @@ namespace MarsQA_1.SpecflowSteps
         [Given(@"the User is in the Profile page")]
         public void GivenTheUserIsInTheProfilePage()
         {
-            ProfilePage.GoToProfilePage();
-            ProfilePage.CheckProfilePage();
+            ProfilePages.GoToProfilePage();
+            ProfilePages.CheckProfilePage();
         }
 
         [Given(@"the User has log-In")]
@@ -25,39 +25,39 @@ namespace MarsQA_1.SpecflowSteps
         [When(@"the User fills the profile details")]
         public void WhenTheUserFillsTheProfileDetails()
         {
-            ProfilePage.FillDetails(2);
+            ProfilePages.FillDetails(2);
         }
         
         [Then(@"the User is able to see the profile details in the profile page")]
         public void ThenTheUserIsAbleToSeeTheProfileDetailsInTheProfilePage()
         {
-            ProfilePage.CheckDetails(2);
+            ProfilePages.CheckDetails(2);
         }
 
         //Edit details Function
         [When(@"the User edits the profile details")]
         public void WhenTheUserEditsTheProfileDetails()
         {
-            ProfilePage.EditDetails(3);
+            //ProfilePages.EditDetails(3);
         }
 
         [Then(@"the User is able to see the changed details in the profile page")]
         public void ThenTheUserIsAbleToSeeTheChangedDetailsInTheProfilePage()
         {
-            ProfilePage.CheckDetails(3);
+            ProfilePages.CheckDetails(3);
         }
 
         //Delete details Function
         [When(@"the User deletes the profile details")]
         public void WhenTheUserDeletesTheProfileDetails()
         {
-            ProfilePage.DeleteDetails();
+            ProfilePages.DeleteDetails();
         }
 
         [Then(@"the User is not able to see the profile details in the profile page")]
         public void ThenTheUserIsnTAbleToSeeTheProfileDetailsInTheProfilePage()
         {
-            ProfilePage.CheckIfEmpty();
+            ProfilePages.CheckIfEmpty();
         }
     }
 }
