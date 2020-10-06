@@ -1,6 +1,7 @@
 ﻿using MarsQA_1.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 {
@@ -27,6 +28,9 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
         #endregion
         public static void AddEducation(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Fill Education after changing tab and waiting for elements to be interactable
             tabEducation.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddEducation);
@@ -36,7 +40,7 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
             dropdownCollegeOption.Click();
             dropdownTitle.Click();
             dropdownTitleOption.Click();
-            textboxDegree.SendKeys((ExcelLibHelper.ReadData(DataRow, "education")));
+            textboxDegree.SendKeys((ExcelLibHelper.ReadData(DataRow, "University")));
             dropdownGraduation.Click();
             dropdownGraduationOption.Click();
             buttonAddEducationSave.Click();
@@ -44,12 +48,15 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void EditEducation(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Edit Skills after changing tab and waiting for elements to be interactable
             tabEducation.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonEditEducation);
-            //buttonEditSkill.Click();
+            buttonEditEducation.Click();
             textboxEditEducation.Clear();
-            textboxEditEducation.SendKeys(ExcelLibHelper.ReadData(DataRow, "education"));
+            textboxEditEducation.SendKeys(ExcelLibHelper.ReadData(DataRow, "University"));
             buttonEditEducationSave.Click();
         }
 
@@ -63,10 +70,14 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void CheckEducation(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Checks Education after changing tab and waiting for elements to be interactable
             tabEducation.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteEducation);
-            if (checkEducation.Text != ExcelLibHelper.ReadData(DataRow, "education")) { Assert.Fail(); }
+            Thread.Sleep(1000);
+            if (checkEducation.Text != ExcelLibHelper.ReadData(DataRow, "University")) { Assert.Fail(); }
         }
 
     }

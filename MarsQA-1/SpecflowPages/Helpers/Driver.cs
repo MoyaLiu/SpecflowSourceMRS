@@ -48,6 +48,7 @@ namespace MarsQA_1.Helpers
         public void Close()
         {
             driver.Quit();
+            driver.Dispose();
         }
 
     }

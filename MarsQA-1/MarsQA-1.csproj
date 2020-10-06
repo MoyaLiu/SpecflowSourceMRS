@@ -172,7 +172,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Feature\Home.feature" />
-    <None Include="Feature\Profile.feature" />
+    <None Include="Feature\ProfileFeatures\Profile-Certificates.feature" />
+    <None Include="Feature\ProfileFeatures\Profile-Education.feature" />
+    <None Include="Feature\ProfileFeatures\Profile-Language.feature" />
+    <None Include="Feature\ProfileFeatures\Profile-Skill.feature" />
+    <None Include="Feature\ProfileFeatures\Profile.feature" />
     <None Include="SpecflowTests\Data\Data.xlsx" />
     <None Include="packages.config" />
     <None Include="SpecflowTests\Data\Mars.xlsx" />

@@ -1,6 +1,7 @@
 ﻿using MarsQA_1.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 {
@@ -29,7 +30,7 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
             tabLanguage.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddLanguage);
             buttonAddLanguage.Click();
-            textboxAddLanguage.SendKeys((ExcelLibHelper.ReadData(DataRow, "language")));
+            textboxAddLanguage.SendKeys(ExcelLibHelper.ReadData(DataRow, "language"));
             dropdownLanguageLV.Click();
             dropdownLanguageOption.Click();
             buttonLanguageSave.Click();
@@ -37,10 +38,15 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void EditLanguage(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Edit Language after changing tab and waiting for elements to be interactable
             tabLanguage.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonEditLanguage);
             buttonEditLanguage.Click();
+            textboxEditLanguage.Clear();
+            textboxEditLanguage.SendKeys(ExcelLibHelper.ReadData(DataRow, "Language"));
             dropdownEditLanguageLV.Click();
             dropdownEditLanguageOption.Click();
             buttonEditLanguageSave.Click();
@@ -57,10 +63,14 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void CheckLanguage(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Checks Language after changing tab and waiting for elements to be interactable
             tabLanguage.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteLanguage);
-            if (checkLanguage.Text != ExcelLibHelper.ReadData(DataRow, "language")) { Assert.Fail(); }
+            Thread.Sleep(1000);
+            if (checkLanguage.Text != ExcelLibHelper.ReadData(DataRow, "Language")) { Assert.Fail(); }
         }
     }
 

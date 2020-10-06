@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MarsQA_1.Feature
+namespace MarsQA_1.Feature.ProfileFeatures
 {
     using TechTalk.SpecFlow;
     using System;

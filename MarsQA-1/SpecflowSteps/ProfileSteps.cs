@@ -1,5 +1,6 @@
 ﻿using MarsQA_1.Pages;
 using MarsQA_1.SpecflowPages.Pages;
+using MarsQA_1.SpecflowPages.Pages.ProfilePage;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.SpecflowSteps
@@ -7,57 +8,171 @@ namespace MarsQA_1.SpecflowSteps
     [Binding]
     public class ProfileSteps
     {
-        //Common Profile Steps
-        [Given(@"the User is in the Profile page")]
-        public void GivenTheUserIsInTheProfilePage()
-        {
-            ProfilePages.GoToProfilePage();
-            ProfilePages.CheckProfilePage();
-        }
-
         [Given(@"the User has log-In")]
         public void GivenTheUserHasLog_In()
         {
-            SignIn.SigninStep();
-        }
-        
-        //Add new details Function
-        [When(@"the User fills the profile details")]
-        public void WhenTheUserFillsTheProfileDetails()
-        {
-            ProfilePages.FillDetails(2);
-        }
-        
-        [Then(@"the User is able to see the profile details in the profile page")]
-        public void ThenTheUserIsAbleToSeeTheProfileDetailsInTheProfilePage()
-        {
-            ProfilePages.CheckDetails(2);
+            SignIn.OpenForm();
+            SignIn.FillCredentials(2);
         }
 
-        //Edit details Function
-        [When(@"the User edits the profile details")]
-        public void WhenTheUserEditsTheProfileDetails()
+        [When(@"the User edits the fluidcard details")]
+        public void WhenTheUserEditsTheFluidcardDetails()
         {
-            //ProfilePages.EditDetails(3);
+            ProfilePages.EditName(2);
+            ProfilePages.FillCardField();
         }
 
-        [Then(@"the User is able to see the changed details in the profile page")]
-        public void ThenTheUserIsAbleToSeeTheChangedDetailsInTheProfilePage()
+        [Then(@"the User is able to see the changes in the fluid card")]
+        public void ThenTheUserIsAbleToSeeTheChangesInTheFluidCard()
         {
-            ProfilePages.CheckDetails(3);
+            ProfilePages.CheckName(2);
         }
 
-        //Delete details Function
-        [When(@"the User deletes the profile details")]
-        public void WhenTheUserDeletesTheProfileDetails()
+        [When(@"the user fills the New Language details")]
+        public void WhenTheUserFillsTheNewLanguageDetails()
         {
-            ProfilePages.DeleteDetails();
+            LanguageTab.AddLanguage(2);
         }
 
-        [Then(@"the User is not able to see the profile details in the profile page")]
-        public void ThenTheUserIsnTAbleToSeeTheProfileDetailsInTheProfilePage()
+        [Then(@"the User should see the new Language in his profile")]
+        public void ThenTheUserShouldSeeTheNewLanguageInHisProfile()
         {
-            ProfilePages.CheckIfEmpty();
+            LanguageTab.CheckLanguage(2);
         }
+
+        [When(@"the user fills the Edit Language details")]
+        public void WhenTheUserFillsTheEditLanguageDetails()
+        {
+            LanguageTab.EditLanguage(3);
+        }
+
+        [Then(@"the User should see the edited Language in his profile")]
+        public void ThenTheUserShouldSeeTheEditedLanguageInHisProfile()
+        {
+            LanguageTab.CheckLanguage(3);
+        }
+
+        [When(@"the user deletes the Language")]
+        public void WhenTheUserDeletesTheLanguage()
+        {
+            LanguageTab.DeleteLanguage();
+        }
+
+        [Then(@"the User should not see the Language in his profile")]
+        public void ThenTheUserShouldNotSeeTheLanguageInHisProfile()
+        {
+            //LanguageTab.
+        }
+
+        [When(@"the user fills the New Skill details")]
+        public void WhenTheUserFillsTheNewSkillDetails()
+        {
+            SkillsTab.AddSkill(2);
+        }
+
+        [Then(@"the User should see the new Skill in his profile")]
+        public void ThenTheUserShouldSeeTheNewSkillInHisProfile()
+        {
+            SkillsTab.CheckSkill(2);
+        }
+
+        [When(@"the user fills the Edit Skill details")]
+        public void WhenTheUserFillsTheEditSkillDetails()
+        {
+            SkillsTab.EditSkill(3);
+        }
+
+        [Then(@"the User should see the edited Skill in his profile")]
+        public void ThenTheUserShouldSeeTheEditedSkillInHisProfile()
+        {
+            SkillsTab.CheckSkill(3);
+        }
+
+        [When(@"the user deletes the Skill")]
+        public void WhenTheUserDeletesTheSkill()
+        {
+            SkillsTab.DeleteSkill();
+        }
+
+        [Then(@"the User should not see the Skill in his profile")]
+        public void ThenTheUserShouldNotSeeTheSkillInHisProfile()
+        {
+            //ScenarioContext.Current.Pending();
+        }
+
+        [When(@"the user fills the New Education details")]
+        public void WhenTheUserFillsTheNewEducationDetails()
+        {
+            EducationTab.AddEducation(2);
+        }
+
+        [Then(@"the User should see the new Education in his profile")]
+        public void ThenTheUserShouldSeeTheNewEducationInHisProfile()
+        {
+            EducationTab.CheckEducation(2);
+        }
+
+        [When(@"the user fills the Edit Education details")]
+        public void WhenTheUserFillsTheEditEducationDetails()
+        {
+            EducationTab.EditEducation(3);
+        }
+
+        [Then(@"the User should see the edited Education in his profile")]
+        public void ThenTheUserShouldSeeTheEditedEducationInHisProfile()
+        {
+            EducationTab.CheckEducation(3);
+        }
+
+        [When(@"the user deletes the Education")]
+        public void WhenTheUserDeletesTheEducation()
+        {
+            EducationTab.DeleteEducation();
+        }
+
+        [Then(@"the User should not see the Education in his profile")]
+        public void ThenTheUserShouldNotSeeTheEducationInHisProfile()
+        {
+            //ScenarioContext.Current.Pending();
+        }
+
+        [When(@"the user fills the New Certificate details")]
+        public void WhenTheUserFillsTheNewCertificateDetails()
+        {
+            CertificatesTab.AddCertificate(2);
+        }
+
+        [Then(@"the User should see the new Certificate in his profile")]
+        public void ThenTheUserShouldSeeTheNewCertificateInHisProfile()
+        {
+            CertificatesTab.CheckCertificate(2);
+        }
+
+        [When(@"the user fills the Edit Certificate details")]
+        public void WhenTheUserFillsTheEditCertificateDetails()
+        {
+            CertificatesTab.EditCertificate(3);
+        }
+
+        [Then(@"the User should see the edited Certificate in his profile")]
+        public void ThenTheUserShouldSeeTheEditedCertificateInHisProfile()
+        {
+            CertificatesTab.CheckCertificate(3);
+        }
+
+        [When(@"the user deletes the Certificate")]
+        public void WhenTheUserDeletesTheCertificate()
+        {
+            CertificatesTab.DeleteCertificate();
+        }
+
+        [Then(@"the User should not see the Certificate in his profile")]
+        public void ThenTheUserShouldNotSeeTheCertificateInHisProfile()
+        {
+            //CertificatesTab
+        }
+
+
+
     }
 }

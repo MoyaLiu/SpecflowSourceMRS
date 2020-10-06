@@ -1,11 +1,7 @@
 ﻿using MarsQA_1.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 {
@@ -30,11 +26,14 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void AddSkill(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Fill Skills after changing tab and waiting for elements to be interactable
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddSkill);
             buttonAddSkill.Click();
-            textboxAddSkill.SendKeys((ExcelLibHelper.ReadData(DataRow, "skill")));
+            textboxAddSkill.SendKeys((ExcelLibHelper.ReadData(DataRow, "Skill")));
             dropdownSkillLV.Click();
             dropdownSkillOption.Click();
             buttonAddSkillSave.Click();
@@ -42,12 +41,15 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void EditSkill(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Edit Skills after changing tab and waiting for elements to be interactable
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonEditSkill);
             buttonEditSkill.Click();
             textboxEditSkill.Clear();
-            textboxEditSkill.SendKeys(ExcelLibHelper.ReadData(DataRow, "skill"));
+            textboxEditSkill.SendKeys(ExcelLibHelper.ReadData(DataRow, "Skill"));
             dropdownEditSkillLV.Click();
             dropdownEditSkillOption.Click();
             buttonEditSkillSave.Click();
@@ -64,10 +66,17 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void CheckSkill(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Checks Skill after changing tab and waiting for elements to be interactable
             tabSkill.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteSkill);
-            if (checkSkill.Text != ExcelLibHelper.ReadData(DataRow, "skill")) { Assert.Fail(); }
+            Thread.Sleep(1000);
+            if (checkSkill.Text != ExcelLibHelper.ReadData(DataRow, "Skill")) 
+            { 
+                Assert.Fail("The skill "+ checkSkill.Text+" doesn't match "+ ExcelLibHelper.ReadData(DataRow, "Skill")); 
+            }
         }
 
     }

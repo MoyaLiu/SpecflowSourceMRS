@@ -1,5 +1,7 @@
 ﻿using MarsQA_1.Helpers;
+using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 {
@@ -24,12 +26,15 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void AddCertificate(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Fill Certifications after changing tab and waiting for elements to be interactable
             tabCertificates.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddCertificates);
             buttonAddCertificates.Click();
-            textboxCertificates.SendKeys((ExcelLibHelper.ReadData(DataRow, "certificates")));
-            textboxCertificator.SendKeys("RH Consulting");
+            textboxCertificates.SendKeys((ExcelLibHelper.ReadData(DataRow, "Certificate")));
+            textboxCertificator.SendKeys(ExcelLibHelper.ReadData(DataRow, "CertifiedFrom"));
             dropdownCertificateYear.Click();
             dropdownCertificateYearOption.Click();
             buttonCertificateSave.Click();
@@ -37,12 +42,15 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void EditCertificate(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Edit Skills after changing tab and waiting for elements to be interactable
             tabCertificates.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonEditCertificate);
             buttonEditCertificate.Click();
             textboxEditCertificate.Clear();
-            textboxEditCertificate.SendKeys(ExcelLibHelper.ReadData(DataRow, "certificates"));
+            textboxEditCertificate.SendKeys(ExcelLibHelper.ReadData(DataRow, "Certificate"));
             buttonEditCertificateSave.Click();
         }
 
@@ -54,12 +62,16 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
             buttonDeleteCertificate.Click();
         }
 
-        public static void CheckCertificate()
+        public static void CheckCertificate(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Checks Certificates after changing tab and waiting for elements to be interactable
             tabCertificates.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteCertificate);
-            if (checkCertificate.Text != ExcelLibHelper.ReadData(DataRow, "certificates")) { CheckResult = false; }
+            Thread.Sleep(1000);
+            if (checkCertificate.Text != ExcelLibHelper.ReadData(DataRow, "Certificate")) { Assert.Fail(); }
         }
 
     }

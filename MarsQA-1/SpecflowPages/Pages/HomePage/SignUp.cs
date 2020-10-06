@@ -7,8 +7,6 @@ namespace MarsQA_1.SpecflowPages.Pages
 {
     class SignUp
     {
-        //private static IWebElement name => Driver.driver.FindElement(By.XPath("//button[@class=''][text()='']"));
-        ///html/body/div[2]/div/div/form/div[3]/div
         private static IWebElement JoinButton => Driver.driver.FindElement(By.XPath("//*[@id='home']/div/div/div[1]/div/button"));
         private static IWebElement FirstName => Driver.driver.FindElement(By.XPath("//input[@name='firstName']"));
         private static IWebElement LastName => Driver.driver.FindElement(By.XPath("//input[@name='lastName']"));
