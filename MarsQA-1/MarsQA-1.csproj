@@ -153,12 +153,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SpecflowPages\Helpers\WaitHelper.cs" />
-    <Compile Include="SpecflowPages\Pages\ProfilePage.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePage\ChangePassword.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePage.cs" />
     <Compile Include="SpecflowPages\Pages\HomePage\SignUp.cs" />
-    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\CertificatesTab.cs" />
-    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\EducationTab.cs" />
-    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\LanguageTab.cs" />
-    <Compile Include="SpecflowPages\Pages\ProfilePageTabs\SkillsTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePageTabs\CertificatesTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePageTabs\EducationTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePageTabs\LanguageTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePageTabs\SkillsTab.cs" />
     <Compile Include="SpecflowSteps\HomeSteps.cs" />
     <Compile Include="SpecflowPages\Helpers\CommonMethods.cs" />
     <Compile Include="SpecflowPages\Helpers\ConstantHelpers.cs" />

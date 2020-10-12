@@ -172,6 +172,41 @@ namespace MarsQA_1.SpecflowSteps
             //CertificatesTab
         }
 
+        [When(@"the User clicks the edit icon in the Profile description")]
+        public void WhenTheUserClicksTheEditIconInTheProfileDescription()
+        {
+            ProfilePages.OpenDescriptionTextfield();
+        }
+
+        [When(@"the User fills the Profile description")]
+        public void WhenTheUserFillsTheProfileDescription()
+        {
+            ProfilePages.FillDescription(2);
+        }
+
+        [Then(@"the User is able to see the description in the profile page")]
+        public void ThenTheUserIsAbleToSeeTheDescriptionInTheProfilePage()
+        {
+            ProfilePages.CheckProfileDescription(2);
+        }
+
+        [When(@"the User clicks the change password option in the Profile menu")]
+        public void WhenTheUserClicksTheChangePasswordOptionInTheProfileMenu()
+        {
+            ProfilePages.OpenChangePassword();
+        }
+
+        [When(@"the User fills the change password form with valid data")]
+        public void WhenTheUserFillsTheChangePasswordFormWithValidData()
+        {
+            ChangePassword.FillForm(2);
+        }
+
+        [Then(@"the User is able to log with the new data")]
+        public void ThenTheUserIsAbleToLogWithTheNewData()
+        {
+            
+        }
 
 
     }

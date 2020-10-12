@@ -1,6 +1,4 @@
 ﻿using MarsQA_1.Helpers;
-using MarsQA_1.Pages;
-using RelevantCodes.ExtentReports;
 using TechTalk.SpecFlow;
 using static MarsQA_1.Helpers.CommonMethods;
 

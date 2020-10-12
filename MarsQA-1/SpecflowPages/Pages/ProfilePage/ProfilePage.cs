@@ -13,6 +13,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement buttonEditDescription => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i"));
         private static IWebElement textboxDescription => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
         private static IWebElement buttonSaveDescription => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/button"));
+        private static IWebElement Description => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/div/div/div/span"));
         private static IWebElement Name => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]"));
         private static IWebElement NameIcon => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]/i"));
         private static IWebElement FirstName => Driver.driver.FindElement(By.XPath("//input[@name='firstName']"));
@@ -27,14 +28,25 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement EarnTargetEditIcon => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/i"));
         private static IWebElement EarnTargetDropdown => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/select"));
         private static IWebElement EarnTargetEditCancel => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/i"));
-
+        private static IWebElement ChangePassword => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/div[1]/div[2]/div/span/div/a[2]"));
         #endregion
 
+        public static void OpenDescriptionTextfield()
+        {
+            //Wait for the Profile details to be interactable and clicks it
+            WaitHelper.WaitClickble(Driver.driver, buttonEditDescription);
+            buttonEditDescription.Click();
+            Thread.Sleep(300);
 
+        }
+        
         public static void FillDescription(int DataRow)
         {
-            //Wait for the Profile details to be interactable
-            WaitHelper.WaitClickble(Driver.driver, buttonEditDescription);
+            //Prepares de ExcelSheet for reading and fills the text field
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+            textboxDescription.Clear();
+            textboxDescription.SendKeys(ExcelLibHelper.ReadData(DataRow, "Description"));
+            buttonSaveDescription.Click();
 
         }
 
@@ -53,23 +65,12 @@ namespace MarsQA_1.SpecflowPages.Pages
             Thread.Sleep(3000);
         }
 
-        public static void EditCardField(IWebElement EditButton, IWebElement Dropdown)
-        {
-            EditButton.Click();
-            Thread.Sleep(1000);
-            Dropdown.Click();
-            Dropdown.SendKeys(Keys.ArrowDown + Keys.Enter);
-        }
-
         public static void FillCardField()
         {
             WaitHelper.WaitClickble(Driver.driver, buttonEditDescription);
             EditAvailability();
             EditHours();
             EditEarnTarget();
-            //EditCardField(AvailabilityEditIcon, AvailabilityDropdown);
-            //EditCardField(HoursEditIcon, HoursDropdown);
-            //EditCardField(EarnTargetEditIcon, EarnTargetDropdown);
         }
         public static void EditHours()
         {
@@ -95,6 +96,14 @@ namespace MarsQA_1.SpecflowPages.Pages
             EarnTargetDropdown.SendKeys(Keys.ArrowDown + Keys.Enter);
         }
 
+        public static void OpenChangePassword()
+        {
+            CheckProfilePage();
+            labelGreeting.Click();
+            Thread.Sleep(500);
+            ChangePassword.Click();
+        }
+
         public static void CheckName(int DataRow)
         {
             //Prepares de ExcelSheet for reading
@@ -116,6 +125,23 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
             //Check that we are log-in in the Profile Page by looking for the greeting message
             WaitHelper.WaitClickble(Driver.driver, labelGreeting);
+
+        }
+
+        public static void CheckProfileDescription(int DataRow)
+        {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
+            //Check if the description is displayed correctly
+            if (Description.Text == ExcelLibHelper.ReadData(DataRow, "Description"))
+            {
+                Assert.Pass("The description " + Description.Text + " matches: " + ExcelLibHelper.ReadData(DataRow, "Description"));
+            }
+            else
+            {
+                Assert.Fail("The description " + Description.Text + " doesn't matches: " + ExcelLibHelper.ReadData(DataRow, "Description"));
+            }
         }
     }
 }
