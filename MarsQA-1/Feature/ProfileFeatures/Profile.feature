@@ -15,8 +15,15 @@ Scenario: Edit my profile Description
 	Then the User is able to see the description in the profile page
 
 @TC009-06
-Scenario: Change password
+Scenario: Change password with invalid password
 	Given the User has log-In
 	When the User clicks the change password option in the Profile menu
-	And the User fills the change password form with valid data
+	And the User fills the change password form with invalid password
+	Then the User is able to see an alert in the change password page
+
+@TC009-07
+Scenario: Change password with valid password
+	Given the User has log-In
+	When the User clicks the change password option in the Profile menu
+	And the User fills the change password form with valid password
 	Then the User is able to log with the new data

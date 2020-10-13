@@ -1,4 +1,5 @@
 ﻿using MarsQA_1.Helpers;
+using MarsQA_1.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System.Threading;
@@ -13,6 +14,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement newPassword => Driver.driver.FindElement(By.XPath("//input[@name='newPassword']"));
         private static IWebElement confirmPassword => Driver.driver.FindElement(By.XPath("//input[@name='confirmPassword']"));
         private static IWebElement save => Driver.driver.FindElement(By.XPath("/html/body/div[4]/div/div[2]/form/div[4]/button"));
+        private static IWebElement alert => Driver.driver.FindElement(By.XPath("/html/body/div[1]/div"));
 
         #endregion
 
@@ -26,6 +28,36 @@ namespace MarsQA_1.SpecflowPages.Pages
             confirmPassword.SendKeys(ExcelLibHelper.ReadData(DataRow, "ConfirmationPassword"));
 
             save.Click();
+        }
+
+        public static void CheckAlert(int AlertID)
+        {
+            string CheckAlert = alert.Text;
+
+            if (CheckAlert== ExcelLibHelper.ReadData(AlertID, "Alerts"))
+            {
+                Assert.Pass("Found: " + CheckAlert);
+            }
+            else
+            {
+                Assert.Fail(CheckAlert+" :Alert doesn't match: " + ExcelLibHelper.ReadData(AlertID, "Alerts"));
+            }
+        }
+
+        public static void CheckNewPassword()
+        {
+            //Logs out to try the new password
+            Thread.Sleep(3000);
+            ProfilePages.LogOut();
+            SignIn.OpenForm();
+            Thread.Sleep(1000);
+            SignIn.FillCredentials(4);
+
+            //Checks that the user is able to logIn and changes the password back again
+            ProfilePages.CheckProfilePage();
+            ProfilePages.OpenChangePassword();
+            FillForm(2);
+
         }
 
     }

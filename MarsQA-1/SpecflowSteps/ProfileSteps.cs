@@ -1,6 +1,7 @@
 ﻿using MarsQA_1.Pages;
 using MarsQA_1.SpecflowPages.Pages;
 using MarsQA_1.SpecflowPages.Pages.ProfilePage;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.SpecflowSteps
@@ -61,7 +62,7 @@ namespace MarsQA_1.SpecflowSteps
         [Then(@"the User should not see the Language in his profile")]
         public void ThenTheUserShouldNotSeeTheLanguageInHisProfile()
         {
-            //LanguageTab.
+            //ScenarioContext.Current.Pending();
         }
 
         [When(@"the user fills the New Skill details")]
@@ -169,7 +170,7 @@ namespace MarsQA_1.SpecflowSteps
         [Then(@"the User should not see the Certificate in his profile")]
         public void ThenTheUserShouldNotSeeTheCertificateInHisProfile()
         {
-            //CertificatesTab
+            //ScenarioContext.Current.Pending();
         }
 
         [When(@"the User clicks the edit icon in the Profile description")]
@@ -196,16 +197,29 @@ namespace MarsQA_1.SpecflowSteps
             ProfilePages.OpenChangePassword();
         }
 
-        [When(@"the User fills the change password form with valid data")]
+        [When(@"the User fills the change password form with valid password")]
         public void WhenTheUserFillsTheChangePasswordFormWithValidData()
         {
-            ChangePassword.FillForm(2);
+            ChangePassword.FillForm(3);
         }
+
+        [When(@"the User fills the change password form with invalid password")]
+        public void WhenTheUserFillsTheChangePasswordFormWithInvalidData()
+        {
+            ChangePassword.FillForm(4);
+        }
+
+        [Then(@"the User is able to see an alert in the change password page")]
+        public void ThenTheUserIsAbleToSeeAnAlertInTheChangePasswordPage()
+        {
+            ChangePassword.CheckAlert(2);
+        }
+
 
         [Then(@"the User is able to log with the new data")]
         public void ThenTheUserIsAbleToLogWithTheNewData()
         {
-            
+            ChangePassword.CheckNewPassword();
         }
 
 

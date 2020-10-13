@@ -26,11 +26,14 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
 
         public static void AddLanguage(int DataRow)
         {
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "Profile");
+
             //Fill Language after changing tab and waiting for elements to be interactable
             tabLanguage.Click();
             WaitHelper.WaitClickble(Driver.driver, buttonAddLanguage);
             buttonAddLanguage.Click();
-            textboxAddLanguage.SendKeys(ExcelLibHelper.ReadData(DataRow, "language"));
+            textboxAddLanguage.SendKeys(ExcelLibHelper.ReadData(DataRow, "Language"));
             dropdownLanguageLV.Click();
             dropdownLanguageOption.Click();
             buttonLanguageSave.Click();

@@ -21,8 +21,12 @@ namespace MarsQA_1.Pages
 
         internal static void FillCredentials(int DataRow)
         {
-            Email.SendKeys(ExcelLibHelper.ReadData(DataRow, "username"));
-            Password.SendKeys(ExcelLibHelper.ReadData(DataRow, "password"));
+            //Prepares de ExcelSheet for reading
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.ExcelPath, "SignIn");
+
+            //Fills form
+            Email.SendKeys(ExcelLibHelper.ReadData(DataRow, "Username"));
+            Password.SendKeys(ExcelLibHelper.ReadData(DataRow, "Password"));
             LoginBtn.Click();
         }
 
