@@ -10,10 +10,11 @@ namespace MarsQA_1.Helpers
     {
         public static void WaitClickble(IWebDriver driver, IWebElement element)
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             try
             {
                 var Wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
+                Wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
                 Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
             }
             catch(Exception error)
@@ -35,6 +36,11 @@ namespace MarsQA_1.Helpers
             {
                 return false;
             }
+        }
+
+        public static void LongWait()
+        {
+            Thread.Sleep(60000);
         }
     }
 }

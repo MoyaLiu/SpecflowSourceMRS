@@ -62,7 +62,7 @@ namespace MarsQA_1.SpecflowSteps
         [Then(@"the User should not see the Language in his profile")]
         public void ThenTheUserShouldNotSeeTheLanguageInHisProfile()
         {
-            //ScenarioContext.Current.Pending();
+            LanguageTab.CompareLastEntry();
         }
 
         [When(@"the user fills the New Skill details")]

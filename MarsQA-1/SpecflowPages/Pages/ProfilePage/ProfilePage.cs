@@ -3,7 +3,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using System.Threading;
 
-namespace MarsQA_1.SpecflowPages.Pages
+namespace MarsQA_1.Pages
 {
     class ProfilePages
     {
@@ -30,6 +30,8 @@ namespace MarsQA_1.SpecflowPages.Pages
         private static IWebElement EarnTargetDropdown => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/select"));
         private static IWebElement EarnTargetEditCancel => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/i"));
         private static IWebElement ChangePassword => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/div[1]/div[2]/div/span/div/a[2]"));
+        private static IWebElement ShareSkillBtn => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[1]/div/div[2]/a"));
+        private static IWebElement ManageListingBtn => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[1]/div/a[3]"));
         #endregion
 
         public static void OpenDescriptionTextfield()
@@ -110,6 +112,16 @@ namespace MarsQA_1.SpecflowPages.Pages
             Thread.Sleep(3000);
             SignOut.Click();
             Thread.Sleep(500);
+        }
+
+        public static void GoToShareSkill()
+        {
+            ShareSkillBtn.Click();
+        }
+
+        public static void GoToManageListing()
+        {
+            ManageListingBtn.Click();
         }
 
         public static void CheckName(int DataRow)

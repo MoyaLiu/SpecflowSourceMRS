@@ -21,6 +21,7 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
         private static IWebElement buttonEditLanguageSave => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
         private static IWebElement buttonDeleteLanguage => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
         private static IWebElement checkLanguage => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+        private static IWebElement LastLanguageListing => Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
 
         #endregion
 
@@ -74,6 +75,20 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfilePage
             WaitHelper.WaitClickble(Driver.driver, buttonDeleteLanguage);
             Thread.Sleep(1000);
             if (checkLanguage.Text != ExcelLibHelper.ReadData(DataRow, "Language")) { Assert.Fail(); }
+        }
+
+        public static void CompareLastEntry()
+        {
+            //Creates a new Web Element for the last() listed element and compares it with the previous last element
+            IWebElement NewLastEntry = Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
+            if (LastLanguageListing != NewLastEntry)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
         }
     }
 

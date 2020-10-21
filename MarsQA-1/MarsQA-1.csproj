@@ -152,7 +152,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SpecflowPages\Helpers\AutoIt.cs" />
     <Compile Include="SpecflowPages\Helpers\WaitHelper.cs" />
+    <Compile Include="SpecflowPages\Pages\ManageListingPage.cs" />
+    <Compile Include="SpecflowPages\Pages\ManageRequestPage.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage\ChangePassword.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePage.cs" />
     <Compile Include="SpecflowPages\Pages\HomePage\SignUp.cs" />
@@ -160,6 +163,7 @@
     <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePageTabs\EducationTab.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePageTabs\LanguageTab.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePageTabs\SkillsTab.cs" />
+    <Compile Include="SpecflowPages\Pages\ShareSkillPage.cs" />
     <Compile Include="SpecflowSteps\HomeSteps.cs" />
     <Compile Include="SpecflowPages\Helpers\CommonMethods.cs" />
     <Compile Include="SpecflowPages\Helpers\ConstantHelpers.cs" />
@@ -168,16 +172,20 @@
     <Compile Include="SpecflowPages\Pages\HomePage\SignIn.cs" />
     <Compile Include="SpecflowPages\Utils\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecflowSteps\ManageRequestSteps.cs" />
     <Compile Include="SpecflowSteps\ProfileSteps.cs" />
+    <Compile Include="SpecflowSteps\ShareSkillSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Feature\Home.feature" />
+    <None Include="Feature\ManageRequest.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Certificates.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Education.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Language.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Skill.feature" />
     <None Include="Feature\ProfileFeatures\Profile.feature" />
+    <None Include="Feature\ShareSkillFeature.feature" />
     <None Include="SpecflowTests\Data\Data.xlsx" />
     <None Include="packages.config" />
     <None Include="SpecflowTests\Data\Mars.xlsx" />
@@ -186,6 +194,17 @@
     <Folder Include="SpecflowTests\Bind_Steps\" />
     <Folder Include="TestReports\Screenshots\" />
     <Folder Include="TestReports\Test_files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AutoItX3Lib">
+      <Guid>{F8937E53-D444-4E71-9275-35B64210CC3B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
