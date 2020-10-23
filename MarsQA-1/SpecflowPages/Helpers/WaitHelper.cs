@@ -40,7 +40,8 @@ namespace MarsQA_1.Helpers
 
         public static void LongWait()
         {
-            Thread.Sleep(60000);
+            //Waits for a long time to allow Manage Request Elements to load without aborting test
+            Thread.Sleep(50000);
         }
     }
 }

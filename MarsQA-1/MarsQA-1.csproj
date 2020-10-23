@@ -179,7 +179,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Feature\Home.feature" />
-    <None Include="Feature\ManageRequest.feature" />
+    <None Include="Feature\ManageRequest\ManageSentRequest.feature" />
+    <None Include="Feature\ManageRequest\ManageReceivedRequest.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Certificates.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Education.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Language.feature" />
