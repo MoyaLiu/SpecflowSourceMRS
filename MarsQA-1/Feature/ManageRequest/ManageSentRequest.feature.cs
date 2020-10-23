@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MarsQA_1.Feature
+namespace MarsQA_1.Feature.ManageRequest
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace MarsQA_1.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ManageRequest")]
-    public partial class ManageRequestFeature
+    [NUnit.Framework.DescriptionAttribute("ManageSentRequest")]
+    public partial class ManageSentRequestFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "ManageRequest.feature"
+#line 1 "ManageSentRequest.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ManageRequest", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ManageSentRequest", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,14 @@ namespace MarsQA_1.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check received request on Manage Request page")]
-        [NUnit.Framework.CategoryAttribute("TC-013-02")]
-        public virtual void CheckReceivedRequestOnManageRequestPage()
+        [NUnit.Framework.DescriptionAttribute("Check sent request on Manage Request page")]
+        [NUnit.Framework.CategoryAttribute("TC-014-01")]
+        public virtual void CheckSentRequestOnManageRequestPage()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC-013-02"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check received request on Manage Request page", null, new string[] {
-                        "TC-013-02"});
+                    "TC-014-01"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check sent request on Manage Request page", null, new string[] {
+                        "TC-014-01"});
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -106,24 +106,24 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("the User has log-In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.When("the User clicks on the received request menu option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the User clicks on the sent request menu option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
- testRunner.Then("the User should see the received request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the User should see the sent requests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check Accept button on Manage Request page")]
-        [NUnit.Framework.CategoryAttribute("TC-013-07")]
-        public virtual void CheckAcceptButtonOnManageRequestPage()
+        [NUnit.Framework.DescriptionAttribute("Check Complete button on Manage Sent Request page")]
+        [NUnit.Framework.CategoryAttribute("TC-014-05")]
+        public virtual void CheckCompleteButtonOnManageSentRequestPage()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC-013-07"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Accept button on Manage Request page", null, new string[] {
-                        "TC-013-07"});
+                    "TC-014-05"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Complete button on Manage Sent Request page", null, new string[] {
+                        "TC-014-05"});
 #line 10
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -145,34 +145,37 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 11
- testRunner.Given("the User has received a new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("the User has log-In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 12
- testRunner.And("the User has log-In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the User sends a new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
- testRunner.When("the User clicks on the received request menu option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("the request has been Accepted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.And("the User Accepts the new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("the User clicks on the sent request menu option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
- testRunner.Then("the User should see the \"Accepted\" status on the request status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("the User clicks on the Completed button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 16
+ testRunner.Then("the User should see the \"Completed\" status on the sent request status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check Complete button on Manage Request page")]
-        [NUnit.Framework.CategoryAttribute("TC-013-08")]
-        public virtual void CheckCompleteButtonOnManageRequestPage()
+        [NUnit.Framework.DescriptionAttribute("Check Withdraw button on Manage Request page")]
+        [NUnit.Framework.CategoryAttribute("TC-014-08")]
+        public virtual void CheckWithdrawButtonOnManageRequestPage()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC-013-08"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Complete button on Manage Request page", null, new string[] {
-                        "TC-013-08"});
-#line 18
+                    "TC-014-08"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Withdraw button on Manage Request page", null, new string[] {
+                        "TC-014-08"});
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -192,71 +195,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 19
- testRunner.Given("the User has received a new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 20
- testRunner.And("the User has log-In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("the User has log-In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 21
- testRunner.When("the User clicks on the received request menu option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("the User sends a new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 22
- testRunner.And("the User Accepts the new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("the User clicks on the sent request menu option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
- testRunner.And("the User clicks on the Complete button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the User Withdraws the new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 24
- testRunner.Then("the User should see the \"Completed\" status on the request status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check Decline request on Manage Request page")]
-        [NUnit.Framework.CategoryAttribute("TC-013-09")]
-        public virtual void CheckDeclineRequestOnManageRequestPage()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "TC-013-09"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Decline request on Manage Request page", null, new string[] {
-                        "TC-013-09"});
-#line 27
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 28
- testRunner.Given("the User has received a new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 29
- testRunner.And("the User has log-In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 30
- testRunner.When("the User clicks on the received request menu option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 31
- testRunner.And("the User Declines the new request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 32
- testRunner.Then("the User should see the \"Declined\" status on the request status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the User should see the \"Withdrawn\" status on the sent request status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
