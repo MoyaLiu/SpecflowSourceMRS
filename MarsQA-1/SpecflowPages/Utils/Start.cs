@@ -25,7 +25,7 @@ namespace MarsQA_1.Utils
            string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
 
            //Close the browser
-           //Close();
+           Close();
            
         }
     }
