@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using System.Collections.Generic;
 
-namespace MarsQA_1.SpecflowPages.Pages
+namespace MarsQA_1.Pages
 {
     class ShareSkillPage
     {
