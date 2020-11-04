@@ -41,11 +41,12 @@ namespace MarsQA_1.Pages
                 ProfilePages.CheckProfilePage();
                 Driver.driver.Navigate().GoToUrl("http://192.168.99.100:5000/Home/ServiceDetail?id=5f678a0708945f000120afb3");
             }
-            Thread.Sleep(2000);
-            RequestButton.Click();
+            //Thread.Sleep(2000);
+            //RequestButton.Click();
             //Thread.Sleep(1000);
-            RequestAcceptButton.Click();
-            Thread.Sleep(2000);
+            //RequestAcceptButton.Click();
+            //Thread.Sleep(2000);
+            SentRequest();
             if (Profile != 2) { 
                 LogOutButton.Click(); 
             }
@@ -54,6 +55,17 @@ namespace MarsQA_1.Pages
                 Driver.driver.Navigate().GoToUrl("http://192.168.99.100:5000/Account/Profile");
             }
             Thread.Sleep(500);
+        }
+
+        public static void SentRequest()
+        {
+            //Check if there is a Request button and clicks it
+            WaitHelper.WaitClickble(Driver.driver,RequestButton);
+            RequestButton.Click();
+
+            //Clicks on the Accept Request alert and waits for 2 second for the page to load
+            RequestAcceptButton.Click();
+            Thread.Sleep(2000);
         }
 
         public static void AcceptRequestWithOtherUser()
@@ -169,7 +181,7 @@ namespace MarsQA_1.Pages
             //Refresh the page to update the listing
             Driver.driver.Navigate().Refresh();
             WaitHelper.LongWait();
-            WaitHelper.WaitClickble(Driver.driver,RequestTitle);
+            WaitHelper.WaitClickble(Driver.driver,RequestStatus);
 
             //Check if the newest request status matches the expected status
             if (RequestStatus.Text==SpectedStatus)
