@@ -156,6 +156,8 @@
     <Compile Include="SpecflowPages\Helpers\WaitHelper.cs" />
     <Compile Include="SpecflowPages\Pages\ManageListingPage.cs" />
     <Compile Include="SpecflowPages\Pages\ManageRequestPage.cs" />
+    <Compile Include="SpecflowPages\Pages\NotificationPage.cs" />
+    <Compile Include="SpecflowPages\Pages\Page.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage\ChangePassword.cs" />
     <Compile Include="SpecflowPages\Pages\ProfilePage\ProfilePage.cs" />
     <Compile Include="SpecflowPages\Pages\HomePage\SignUp.cs" />
@@ -174,6 +176,7 @@
     <Compile Include="SpecflowPages\Utils\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecflowSteps\ManageRequestSteps.cs" />
+    <Compile Include="SpecflowSteps\NotificationSteps.cs" />
     <Compile Include="SpecflowSteps\ProfileSteps.cs" />
     <Compile Include="SpecflowSteps\SanitySteps.cs" />
     <Compile Include="SpecflowSteps\SearchSkillsSteps.cs" />
@@ -184,6 +187,8 @@
     <None Include="Feature\Home.feature" />
     <None Include="Feature\ManageRequest\ManageSentRequest.feature" />
     <None Include="Feature\ManageRequest\ManageReceivedRequest.feature" />
+    <None Include="Feature\Notification\Notification-Dashboard.feature" />
+    <None Include="Feature\Notification\Notification-Menu.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Certificates.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Education.feature" />
     <None Include="Feature\ProfileFeatures\Profile-Language.feature" />
