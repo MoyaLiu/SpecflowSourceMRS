@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MarsQA_1.Feature.Notification
+namespace MarsQA_1.Feature.Chat
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace MarsQA_1.Feature.Notification
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Notification-Menu")]
-    public partial class Notification_MenuFeature
+    [NUnit.Framework.DescriptionAttribute("Chat")]
+    public partial class ChatFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Notification-Menu.feature"
+#line 1 "Chat.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Notification-Menu", "\tThe features of notification tab", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Chat", "\tValidate Chat and Chat History", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,14 @@ namespace MarsQA_1.Feature.Notification
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check if user is able to click on \"Notification\"")]
-        [NUnit.Framework.CategoryAttribute("TC_017_01")]
-        public virtual void CheckIfUserIsAbleToClickOnNotification()
+        [NUnit.Framework.DescriptionAttribute("Check if user is able to click on Chat")]
+        [NUnit.Framework.CategoryAttribute("TC_022_01")]
+        public virtual void CheckIfUserIsAbleToClickOnChat()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_017_01"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able to click on \"Notification\"", null, new string[] {
-                        "TC_017_01"});
+                    "TC_022_01"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able to click on Chat", null, new string[] {
+                        "TC_022_01"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -103,27 +103,27 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("the User has logged In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The user has logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
- testRunner.When("Click on the Notification button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Clicks on Chat button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.Then("The Notification should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User should be able to see Chat Dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check if user is able to click on \"Notification\"->\"Mark all as read\"")]
-        [NUnit.Framework.CategoryAttribute("TC_017_02")]
-        public virtual void CheckIfUserIsAbleToClickOnNotification_MarkAllAsRead()
+        [NUnit.Framework.DescriptionAttribute("Check if user is able send message to other user")]
+        [NUnit.Framework.CategoryAttribute("TC_022_02")]
+        public virtual void CheckIfUserIsAbleSendMessageToOtherUser()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_017_02"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able to click on \"Notification\"->\"Mark all as read\"", null, new string[] {
-                        "TC_017_02"});
+                    "TC_022_02"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able send message to other user", null, new string[] {
+                        "TC_022_02"});
 #line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -145,31 +145,34 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 12
- testRunner.Given("the User has logged In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The user has logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
- testRunner.And("Click on the Notification button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Clicks on Chat button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.When("Click on the Mark all as read button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Types in a message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
- testRunner.Then("The numbers of notification should be cleared", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("Clicks on send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+ testRunner.Then("User should be able to see the message sent in the chat room", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check if user is able to click on \"Notification\"->\"See all\"")]
-        [NUnit.Framework.CategoryAttribute("TC_017_03")]
-        public virtual void CheckIfUserIsAbleToClickOnNotification_SeeAll()
+        [NUnit.Framework.DescriptionAttribute("Check if user is able to see number of new messages")]
+        [NUnit.Framework.CategoryAttribute("TC_022_04")]
+        public virtual void CheckIfUserIsAbleToSeeNumberOfNewMessages()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_017_03"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able to click on \"Notification\"->\"See all\"", null, new string[] {
-                        "TC_017_03"});
-#line 18
+                    "TC_022_04"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able to see number of new messages", null, new string[] {
+                        "TC_022_04"});
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -189,17 +192,53 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 19
- testRunner.Given("the User has logged In", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 20
- testRunner.And("Click on the Notification button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("The user has logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 21
- testRunner.When("Click on the See all button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("User should be able to see the number of new messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 22
- testRunner.Then("The user should be able to navigate to the dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check if user is able to click on other username")]
+        [NUnit.Framework.CategoryAttribute("TC_023_01")]
+        public virtual void CheckIfUserIsAbleToClickOnOtherUsername()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "TC_023_01"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check if user is able to click on other username", null, new string[] {
+                        "TC_023_01"});
+#line 25
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 26
+ testRunner.Given("The user has logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 27
+ testRunner.When("Clicks on Chat button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 28
+ testRunner.Then("User should be able to see other users", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
